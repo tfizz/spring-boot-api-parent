@@ -1,0 +1,29 @@
+name: Release Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get Pom Version
+        id: get_pom_version
+        uses: mikefarah/yq@v4
+        with:
+          cmd: yq -oy '.project.version' pom.xml
+
+      - name: Create Git Release
+        env:
+          TAG: ${{ steps.get_pom_version.outputs.result }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create v"$TAG" --latest=true --title=v"$TAG" --generate-notes
