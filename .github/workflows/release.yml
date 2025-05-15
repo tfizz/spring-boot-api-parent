@@ -1,6 +1,4 @@
 name: Release Workflow
-concurrency:
-  cancel-in-progress: true
 
 on:
   push:
