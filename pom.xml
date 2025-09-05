@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>17</java.version>
-        <maven.version.plugin>2.18.0</maven.version.plugin>
+        <maven.version.plugin>2.19.0</maven.version.plugin>
     </properties>
 
     <dependencies>
