@@ -6,7 +6,7 @@
 
     <groupId>org.tfizz</groupId>
     <artifactId>spring-boot-api-parent</artifactId>
-    <version>3.5.6</version>
+    <version>3.5.7</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
